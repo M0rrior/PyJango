@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #34675C;
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.archive, .article {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 40px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.header img {
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.header img:hover {
+    transform: scale(1.03);
+}
+
+.one-post {
+    background: rgb(163, 204, 171, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.one-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background: rgb(163, 204, 171, 0.3);
+}
+
+.post-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-left: 4px solid #fff;
+    padding-left: 15px;
+}
+
+.post-title a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-title a:hover {
+    color: #F26800;
+    text-decoration: underline;
+}
+
+.article-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.article-author, .article-created-date {
+    background: #F26800;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.article-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.back-link {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.back-link a {
+    display: inline-block;
+    background: #F26800;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-link a:hover {
+    background: #F26800;
+    transform: translateX(5px);
+}
+
+// ...........
+
+.create-post {
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+    min-height: 100vh;
+}
+
+.create-post .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.create-post h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff, #f1c40f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #f1c40f;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(241, 196, 15, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+/* Кнопка отправки */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #f1c40f, #e67e22);
+    border: none;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #e67e22, #f1c40f);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Блок ошибок */
+.errors {
+    margin-top: 25px;
+    background: rgba(231, 76, 60, 0.9);
+    border-radius: 20px;
+    padding: 15px 20px;
+    backdrop-filter: blur(5px);
+}
+
+.errors ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.errors li {
+    margin: 5px 0;
+}
+
+/* Ссылка возврата */
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link a {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.back-link a:hover {
+    background: #fff;
+    color: #1abc9c;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.nav-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.nav-links a{
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+.nav-links a:hover {
+    background: #fff;
+    color: #1abc9c;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
