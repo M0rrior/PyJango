@@ -2,6 +2,8 @@ from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Article
+from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
 def archive(request):
     return render(request, 'archive.html', {"posts": Article.objects.all()})
 def get_article(request, article_id):
@@ -41,3 +43,41 @@ def create_post(request):
             })
     else:
         return render(request, 'create_post.html')
+
+def register(request):
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        errors = {}
+
+        if not username or not email or not password:
+            errors['form'] = 'Все поля обязательны для заполнения'
+        elif User.objects.filter(username=username).exists():
+            errors['form'] = 'Пользователь с таким логином уже существует'
+        else:
+            user = User.objects.create_user(username, email, password)
+
+            login(request, user)
+            return redirect('archive')
+        return render(request, 'register.html', {'form': request.POST, 'errors': errors})
+    else:
+        return render(request, 'register.html')
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('archive')
+        else:
+            return render(request, 'login.html', {'error': 'Неверный логин или пароль'})
+    else:
+        return render(request, 'login.html')
+
+def user_logout(request):
+    logout(request)
+    return redirect('archive')
