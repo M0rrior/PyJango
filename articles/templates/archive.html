@@ -4,6 +4,7 @@
     <title>Архив статей</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    <script src="{% static 'js/helloworld.js' %}"></script>
 </head>
 <body class="archive">
     <div class="header">
@@ -36,8 +37,10 @@
                     <div class="article-created-date">{{ post.created_date }}</div>
                 </div>
                 <p class="article-text">{{ post.get_excerpt }}</p>
+                <button class="fold-button">свернуть</button>
             </div>
         {% endfor %}
     </div>
+<script src="{% static 'js/fold-post.js' %}"></script>
 </body>
 </html>
